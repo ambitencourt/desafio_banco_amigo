@@ -24,10 +24,10 @@ Link do protótipo final(figma): https://www.figma.com/file/vpaNT5w2hjCGWsfvLLnC
 - [x] ValueNotifier como gerenciamento de estado principal;
 - [x] Responsividade com Flex Widgets e MediaQuery;
 - [x] Gerenciamento de rotas, modularização e Injeção de dependências com Flutter Modular;
-- [x] Backend Firebase;
+- [x] Backend Mockado com Json Server;
 - [x] Custom Widgets;
 - [x] Clean architeture;
-- [x] Login
+- [x] Firebase Auth
 
 ## 🗺Roadmap
 1. Desenvolvimento da estrutura base de pastas tendo como referência o Clean Dart;
@@ -38,21 +38,21 @@ Link do protótipo final(figma): https://www.figma.com/file/vpaNT5w2hjCGWsfvLLnC
 6. Desenvolvimento de customs widgets para padronização do app;
 7. Desenvolvimento das funcionalidades;
 8. Organização do fluxo do aplicativo;
-9.  Reestruturação nas presentations;
+9. Reestruturação nas pages;
 
 
 ## 🎨Demonstração
 
 Seguem telas:
 
-Em breve...
+
 <!-- <img src="https://github.com/ambitencourt/adote_pets/blob/master/assets/images/1.PNG" height="300em"/><img src="https://github.com/ambitencourt/adote_pets/blob/master/assets/images/2.PNG" height="300em"/><img src="https://github.com/ambitencourt/adote_pets/blob/master/assets/images/3.PNG" height="300em"/><img src="https://github.com/ambitencourt/adote_pets/blob/master/assets/images/4.PNG" height="300em"/> -->
 
 
 ## 🏁Como utilizar
 
 Baixe o apk(pacote de instalação do Android) no link abaixo e instale.
-<!-- https://github.com/ambitencourt/adote_pets/blob/master/assets/app-release.apk -->
+Em breve...
 
 ## 🛠Tecnologias
 
@@ -72,6 +72,9 @@ Os seguintes packages foram utilizados no projeto:
 - [IconSax](https://pub.dev/packages/iconsax)
 - [Firebase Core](https://pub.dev/packages/firebase_core)
 - [Cloud Firestore](https://pub.dev/packages/cloud_firestore)
+- [Dio](https://pub.dev/packages/dio)
+- [Asuka](https://pub.dev/packages/asuka)
+- [Intl](https://pub.dev/packages/intl)
 ## 🤝Contribuição
 
 1. Faça um **fork** do projeto.

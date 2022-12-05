@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                                         data: widget.controller.userStore.value
                                                 ?.name
                                                 .toString() ??
-                                            '',
+                                            'Usuário',
                                         align: TextAlign.left,
                                         color: AppColors.black,
                                         fontSize: 22,
@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.fromLTRB(
-                                    mediaQuery.width * .4, 15, 0, 0),
+                                    mediaQuery.width * .34, 15, 0, 0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -218,10 +218,10 @@ class _HomePageState extends State<HomePage> {
                                               ),
                                               child: TextWidget(
                                                 data: value?.formattedBalance ??
-                                                    '...erro',
+                                                    'R\$ 1000,00',
                                                 align: TextAlign.left,
                                                 color: AppColors.blue,
-                                                fontSize: 40,
+                                                fontSize: 36,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             );
