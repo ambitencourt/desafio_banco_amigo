@@ -3,7 +3,7 @@
 
 Um aplicativo opensource com as funcionalidades básicas de um banco.
 
-Link do protótipo final(figma): https://www.figma.com/file/vpaNT5w2hjCGWsfvLLnCDg/Banco-Amigo?node-id=6%3A84&t=c64P2Ay2V99CxTnv-1
+Link do protótipo final(figma): https://www.figma.com/file/vpaNT5w2hjCGWsfvLLnCDg/Banco-Amigo?node-id=0%3A1&t=12AcUzor0OgNqphK-1
 
 
 
@@ -25,7 +25,7 @@ Link do protótipo final(figma): https://www.figma.com/file/vpaNT5w2hjCGWsfvLLnC
 - [x] Responsividade com Flex Widgets e MediaQuery;
 - [x] Gerenciamento de rotas, modularização e Injeção de dependências com Flutter Modular;
 - [x] Backend Mockado com Json Server;
-- [x] Custom Widgets;
+- [x] Custom Widgets e desacoplamento de services;
 - [x] Clean architeture;
 - [x] Firebase Auth
 
@@ -35,7 +35,7 @@ Link do protótipo final(figma): https://www.figma.com/file/vpaNT5w2hjCGWsfvLLnC
 3. Desenvolvimento das classes responsáveis por conexão com o Firebase;
 4. Implementado a regra de negócios e integração com o Firebase;
 5. Implementado gerenciamento de estado com ValueNotifier;
-6. Desenvolvimento de customs widgets para padronização do app;
+6. Desenvolvimento de customs widgets  e desacoplamento de services para padronização do app;
 7. Desenvolvimento das funcionalidades;
 8. Organização do fluxo do aplicativo;
 9. Reestruturação nas pages;

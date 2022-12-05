@@ -185,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                                 Row(
                                   children: [
                                     const Icon(
-                                      Icons.build_circle_rounded,
+                                      Iconsax.coin4,
                                       size: 30,
                                     ),
                                     SizedBox(
