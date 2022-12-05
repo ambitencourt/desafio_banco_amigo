@@ -3,8 +3,6 @@ import 'package:banco_amigo/app/common/app_images.dart';
 import 'package:banco_amigo/app/common/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
-import '../../../../../../common/adapters/custom_alerts/asuka/asuka_dialog.dart';
 import '../../../../../../common/app_colors.dart';
 import '../../../../domain/entities/user_entity.dart';
 import '../../../widgets/chat_widget.dart';
@@ -280,6 +278,11 @@ class _RegisterPageState extends State<RegisterPage> {
                         suffix: InkWell(
                           onTap: () {
                             fillInformation();
+                            FocusScopeNode currentFocus =
+                                FocusScope.of(context);
+                            if (!currentFocus.hasPrimaryFocus) {
+                              currentFocus.unfocus();
+                            }
                           },
                           child: const Text(
                             'Enviar',
