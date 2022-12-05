@@ -53,8 +53,7 @@ class _SplashPageState extends State<SplashPage> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    AnimatedContainer(
-                      duration: const Duration(milliseconds: 600),
+                    Container(
                       width: 13,
                       height: 13,
                       decoration: BoxDecoration(
@@ -64,8 +63,7 @@ class _SplashPageState extends State<SplashPage> {
                     const SizedBox(
                       width: 10,
                     ),
-                    AnimatedContainer(
-                      duration: const Duration(milliseconds: 600),
+                    Container(
                       width: 13,
                       height: 13,
                       decoration: BoxDecoration(
@@ -75,8 +73,7 @@ class _SplashPageState extends State<SplashPage> {
                     const SizedBox(
                       width: 10,
                     ),
-                    AnimatedContainer(
-                      duration: const Duration(milliseconds: 600),
+                    Container(
                       width: 13,
                       height: 13,
                       decoration: BoxDecoration(
