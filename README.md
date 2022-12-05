@@ -46,7 +46,7 @@ Link do protótipo final(figma): https://www.figma.com/file/vpaNT5w2hjCGWsfvLLnC
 Seguem telas:
 
 
-<!-- <img src="https://github.com/ambitencourt/adote_pets/blob/master/assets/images/1.PNG" height="300em"/><img src="https://github.com/ambitencourt/adote_pets/blob/master/assets/images/2.PNG" height="300em"/><img src="https://github.com/ambitencourt/adote_pets/blob/master/assets/images/3.PNG" height="300em"/><img src="https://github.com/ambitencourt/adote_pets/blob/master/assets/images/4.PNG" height="300em"/> -->
+<img src="https://github.com/ambitencourt/desafio_banco_amigo/blob/master/assets/images/Presentation/login.jpg" height="300em"/><img src="https://github.com/ambitencourt/desafio_banco_amigo/blob/master/assets/images/Presentation/register.jpg" height="300em"/><img src="https://github.com/ambitencourt/desafio_banco_amigo/blob/master/assets/images/Presentation/register2.jpg" height="300em"/><img src="https://github.com/ambitencourt/desafio_banco_amigo/blob/master/assets/images/Presentation/home.jpg" height="300em"/><img src="https://github.com/ambitencourt/desafio_banco_amigo/blob/master/assets/images/Presentation/home2.jpg" height="300em"/>
 
 
 ## 🏁Como utilizar
