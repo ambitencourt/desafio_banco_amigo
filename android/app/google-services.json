@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1034453032226",
+    "project_id": "banco-amigo-5d2aa",
+    "storage_bucket": "banco-amigo-5d2aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034453032226:android:79bd9b996af7f614e9197b",
+        "android_client_info": {
+          "package_name": "com.example.banco_amigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034453032226-lvrdf63hbqaio7t8mcd5n8unrs9gncok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCja0PoZv4NWYCEbX9-T689nEzdn2bhcvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034453032226-lvrdf63hbqaio7t8mcd5n8unrs9gncok.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1034453032226-q7rq2v5ouvjgahfn0t5rmgrs8gssrigb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bancoAmigo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
