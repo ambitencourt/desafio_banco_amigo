@@ -126,6 +126,12 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
+    dismissKeyboard() {
+      FocusScopeNode currentFocus = FocusScope.of(context);
+      if (!currentFocus.hasPrimaryFocus) {
+        currentFocus.unfocus();
+      }
+    }
 
     return Scaffold(
       backgroundColor: AppColors.primary,
@@ -278,11 +284,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         suffix: InkWell(
                           onTap: () {
                             fillInformation();
-                            FocusScopeNode currentFocus =
-                                FocusScope.of(context);
-                            if (!currentFocus.hasPrimaryFocus) {
-                              currentFocus.unfocus();
-                            }
+                            dismissKeyboard();
                           },
                           child: const Text(
                             'Enviar',
@@ -296,6 +298,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         suffixIcon: InkWell(
                           onTap: () {
                             fillInformation();
+                            dismissKeyboard();
                           },
                           child: const Icon(
                             Icons.send,
@@ -382,14 +385,6 @@ class _RegisterPageState extends State<RegisterPage> {
         });
         break;
       case StepsEnum.finish:
-        await widget.controller.signUp(
-          UserEntity(
-            document: document,
-            email: email,
-            name: name,
-            password: password,
-          ),
-        );
         setState(() {
           Asuka.showSnackBar(
             const SnackBar(
@@ -397,6 +392,15 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           );
           Modular.to.pushReplacementNamed('/bank/home');
+          widget.controller.signUp(
+            UserEntity(
+              document: document,
+              email: email,
+              name: name,
+              password: password,
+            ),
+          );
+
           step = StepsEnum.done;
         });
         break;

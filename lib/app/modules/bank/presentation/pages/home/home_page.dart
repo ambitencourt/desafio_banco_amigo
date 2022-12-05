@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage> {
   getMoment() {
     DateTime now = DateTime.now();
     String formattedDate = DateFormat('kk').format(now);
-    print(formattedDate);
     if (int.parse(formattedDate) >= 01 && int.parse(formattedDate) < 13) {
       return 'Bom dia';
     } else if (int.parse(formattedDate) >= 13 &&
