@@ -60,7 +60,7 @@ Seguem telas:
 4. Execute em um emulador Android; 
 5. Crie uma conta no aplicativo e faça login;
 6. Para testar a operação de transferência, insira o valor que quer transferir e informe o número da conta de destino presente no arquivo db.json, como na imagem abaixo: 
-<img src="https://github.com/ambitencourt/desafio_banco_amigo/blob/master/assets/images/Presentation/login.jpg" height="300em"/>
+<img src="https://github.com/ambitencourt/desafio_banco_amigo/blob/master/assets/images/Presentation/transferir.JPG" height="300em"/>
 
 
 ## 🛠Tecnologias
