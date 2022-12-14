@@ -133,7 +133,6 @@ class _LoginPageState extends State<LoginPage> {
                                     password: passwordController.text,
                                   ));
                                   //TODO Criar tratamento de erros e redirecionamento
-                                  Modular.to.pushReplacementNamed('/bank/home');
                                 },
                                 style: ElevatedButton.styleFrom(
                                   minimumSize: const Size(200, 45),

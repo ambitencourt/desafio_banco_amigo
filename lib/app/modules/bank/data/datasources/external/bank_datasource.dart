@@ -19,7 +19,7 @@ class BankDatasource implements IBankDatasource {
       {required double value,
       required String account,
       required String accountDestiny}) async {
-    await _httpClient.put('/bank/deposit', data: {
+    await _httpClient.put('/bank/transfer', data: {
       'value': value,
       'account': account,
       'accountDestiny': accountDestiny,
@@ -28,7 +28,7 @@ class BankDatasource implements IBankDatasource {
 
   @override
   Future withdraw({required double value, required String account}) async {
-    await _httpClient.put('/bank/deposit', data: {
+    await _httpClient.put('/bank/withdraw', data: {
       'value': value,
       'account': account,
     });

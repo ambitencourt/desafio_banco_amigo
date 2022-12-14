@@ -1,5 +1,6 @@
 import 'package:asuka/asuka.dart';
 import 'package:asuka/asuka.dart' as asuka;
+import 'package:banco_amigo/app/common/stores/home_store.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -26,10 +27,10 @@ class AppModule extends Module {
               fShowDialog: i<FShowDialog>(),
               fAlert: i<FAlert>(),
             )),
-        Bind.factory(
-            (i) => Dio(BaseOptions(baseUrl: 'http://localhost:3000/users'))),
+        Bind.factory((i) => Dio(BaseOptions(baseUrl: 'http://10.0.2.2:8080'))),
         Bind.factory<IHttpClientAdapter>((i) => DioAdapter(dio: i())),
         Bind.lazySingleton((i) => UserStore()),
+        Bind.lazySingleton((i) => HomeStore()),
       ];
 
   @override

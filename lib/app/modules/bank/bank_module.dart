@@ -15,6 +15,7 @@ class BankModule extends Module {
   List<Bind> get binds => [
         Bind.factory((i) => HomeController(
               userStore: i(),
+              homeStore: i(),
               dialog: i(),
               deposit: i(),
               transfer: i(),
@@ -34,9 +35,5 @@ class BankModule extends Module {
             child: (context, args) => HomePage(
                   controller: Modular.get(),
                 )),
-        // ChildRoute('/details',
-        //     child: (context, args) => DetailsPage(
-        //           pet: args.data,
-        //         )),
       ];
 }

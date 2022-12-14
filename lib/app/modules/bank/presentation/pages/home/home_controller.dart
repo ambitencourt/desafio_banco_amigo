@@ -1,5 +1,5 @@
 import '../../../../../common/adapters/custom_alerts/dialog_adapter.dart';
-
+import '../../../../../common/stores/home_store.dart';
 import '../../../../../common/stores/user_store.dart';
 import '../../../domain/usecases/deposit_usecases.dart';
 import '../../../domain/usecases/transfer_usecases.dart';
@@ -10,7 +10,7 @@ import 'widgets/withdraw_dialog_widget.dart';
 
 class HomeController {
   final UserStore userStore;
-
+  final HomeStore homeStore;
   final IDialogAdapter dialog;
   final WithdrawUsecase withdraw;
   final TransferUsecase transfer;
@@ -18,6 +18,7 @@ class HomeController {
 
   HomeController({
     required this.userStore,
+    required this.homeStore,
     required this.dialog,
     required this.withdraw,
     required this.transfer,
@@ -71,5 +72,18 @@ class HomeController {
     dialog.showDialog(TransferDialogWidget(
       onFinish: _onTransfer,
     ));
+  }
+
+  getMoment() {
+    DateTime now = DateTime.now();
+    int horaAtual = now.hour;
+
+    if (horaAtual >= 01 && horaAtual < 13) {
+      homeStore.setMoment('Bom dia');
+    } else if (horaAtual >= 13 && horaAtual < 18) {
+      homeStore.setMoment('Boa tarde');
+    } else {
+      homeStore.setMoment('Boa noite');
+    }
   }
 }

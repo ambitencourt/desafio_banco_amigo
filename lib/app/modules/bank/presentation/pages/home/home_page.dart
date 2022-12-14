@@ -2,8 +2,8 @@ import 'package:banco_amigo/app/common/app_images.dart';
 import 'package:banco_amigo/app/modules/bank/presentation/pages/home/home_controller.dart';
 import 'package:banco_amigo/app/modules/bank/presentation/pages/home/widgets/operations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../../common/app_colors.dart';
 import '../../../../../common/app_text.dart';
@@ -22,22 +22,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool hidevalue = false;
-  getMoment() {
-    DateTime now = DateTime.now();
-    String formattedDate = DateFormat('kk').format(now);
-    if (int.parse(formattedDate) >= 01 && int.parse(formattedDate) < 13) {
-      return 'Bom dia';
-    } else if (int.parse(formattedDate) >= 13 &&
-        int.parse(formattedDate) < 18) {
-      return 'Boa tarde';
-    } else {
-      return 'Boa noite';
-    }
-  }
 
   @override
   void initState() {
-    getMoment();
+    widget.controller.getMoment();
 
     super.initState();
   }
@@ -45,6 +33,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context).size;
+    String name =
+        widget.controller.userStore.value?.name.toString() ?? 'Usuário';
+    List<String> nameSplitted = name.split(' ');
+    String firstName = nameSplitted.first;
+
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         color: AppColors.secondary,
@@ -117,26 +110,27 @@ class _HomePageState extends State<HomePage> {
                           Row(
                             children: [
                               Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(20, 10, 0, 0),
+                                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    TextWidget(
-                                        data: getMoment(),
-                                        align: TextAlign.left,
-                                        color: AppColors.black,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.normal),
+                                    ValueListenableBuilder(
+                                        valueListenable:
+                                            widget.controller.homeStore,
+                                        builder: (context, value, __) {
+                                          return TextWidget(
+                                              data: value.toString(),
+                                              align: TextAlign.left,
+                                              color: AppColors.black,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.normal);
+                                        }),
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
                                           20, 0, 0, 0),
                                       child: TextWidget(
-                                        data: widget.controller.userStore.value
-                                                ?.name
-                                                .toString() ??
-                                            'Usuário',
+                                        data: firstName,
                                         align: TextAlign.left,
                                         color: AppColors.black,
                                         fontSize: 22,
@@ -146,34 +140,55 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(
-                                    mediaQuery.width * .34, 15, 0, 0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
-                                      child: SizedBox(
-                                        width: 60,
-                                        height: 60,
-                                        child: CircleAvatar(
-                                          radius: 30,
-                                          backgroundColor: AppColors.background,
-                                          backgroundImage: AssetImage(
-                                            AppImages.splash,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.fromLTRB(
+                                        mediaQuery.width * .34, 15, 0, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: const [
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(15, 0, 0, 0),
+                                          child: SizedBox(
+                                            width: 60,
+                                            height: 60,
+                                            child: CircleAvatar(
+                                              radius: 30,
+                                              backgroundColor:
+                                                  AppColors.background,
+                                              backgroundImage: AssetImage(
+                                                AppImages.splash,
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                              ),
+                                  ),
+                                  ValueListenableBuilder(
+                                      valueListenable:
+                                          widget.controller.userStore,
+                                      builder: (context, value, child) {
+                                        return IconButton(
+                                          onPressed: () {
+                                            widget.controller.userStore
+                                                .logOut();
+                                            Modular.to.pushReplacementNamed(
+                                                '/login/loginpage');
+                                          },
+                                          icon: const Icon(Icons.logout),
+                                        );
+                                      }),
+                                ],
+                              )
                             ],
-                          ),
-                          SizedBox(
-                            height: mediaQuery.height * .015,
                           ),
                           Padding(
                             padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
@@ -190,11 +205,12 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       width: mediaQuery.width * .015,
                                     ),
-                                    const TextWidget(
-                                      data: 'Conta Corrente',
+                                    TextWidget(
+                                      data:
+                                          'Conta Corrente nº (${widget.controller.userStore.value!.accountNumber})',
                                       align: TextAlign.left,
                                       color: AppColors.black,
-                                      fontSize: 15,
+                                      fontSize: 14,
                                       fontWeight: FontWeight.normal,
                                     ),
                                   ],
@@ -217,7 +233,7 @@ class _HomePageState extends State<HomePage> {
                                               ),
                                               child: TextWidget(
                                                 data: value?.formattedBalance ??
-                                                    'R\$ 1000,00',
+                                                    'R\$ 0,00',
                                                 align: TextAlign.left,
                                                 color: AppColors.blue,
                                                 fontSize: 36,

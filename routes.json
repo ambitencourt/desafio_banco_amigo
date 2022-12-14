@@ -1,0 +1,7 @@
+{
+    "/user/signup": "/user",
+    "/user/signin/:id": "/user/:id",
+    "/bank/deposit": "/bank",
+    "/bank/transfer": "/bank",
+    "/bank/withdraw": "/bank"
+}

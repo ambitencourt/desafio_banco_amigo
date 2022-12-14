@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:asuka/asuka.dart';
 import 'package:banco_amigo/app/common/app_images.dart';
 import 'package:banco_amigo/app/common/app_text.dart';
@@ -36,6 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
   String password = '';
   String document = '';
   String birthday = '';
+  String accountNumber = Random().nextInt(100110010).toString();
   String passwordConfirm = '';
 
   StepsEnum step = StepsEnum.initial;
@@ -391,16 +394,18 @@ class _RegisterPageState extends State<RegisterPage> {
               content: Text("Cadastro realizado com sucesso"),
             ),
           );
-          Modular.to.pushReplacementNamed('/bank/home');
+
           widget.controller.signUp(
             UserEntity(
               document: document,
               email: email,
               name: name,
               password: password,
+              birthday: birthday,
+              accountNumber: accountNumber,
             ),
           );
-
+          Modular.to.pushReplacementNamed('/login/loginpage');
           step = StepsEnum.done;
         });
         break;

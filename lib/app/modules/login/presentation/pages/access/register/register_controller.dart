@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:banco_amigo/app/common/entities/login_entity.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../../../common/stores/user_store.dart';
 import '../../../../domain/entities/user_entity.dart';
