@@ -132,4 +132,32 @@ class DioAdapter implements IHttpClientAdapter {
       );
     }
   }
+
+  @override
+  Future<HttpResponse> patch(String path,
+      {data,
+      Map<String, String>? queryParameters,
+      Map<String, String>? headers}) async {
+    try {
+      final result = await dio.patch(
+        path,
+        queryParameters: queryParameters,
+        data: data,
+        options: Options(headers: headers),
+      );
+      HttpResponse response = HttpResponse(
+        data: result.data,
+        statusCode: result.statusCode ?? 200,
+      );
+      return response;
+    } on DioError catch (e) {
+      throw HttpClientError(
+        data: e.response?.data,
+        statusCode: e.response?.statusCode ?? 500,
+        type: DioErrorType.response,
+        message: e.message,
+        requestOptions: e.requestOptions,
+      );
+    }
+  }
 }

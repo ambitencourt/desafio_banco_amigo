@@ -28,32 +28,30 @@ class HomeController {
   _onTransfer(String value, String accountDestiny) async {
     final withdrawValue = double.tryParse(value) ?? 0;
     await transfer(
-      account: userStore.value!.accountNumber,
+      account: userStore.value?.accountNumber ?? '',
       accountDestiny: accountDestiny,
       value: withdrawValue,
     );
-
     userStore.removeBalance(withdrawValue);
   }
 
   _onWithdraw(String value) async {
     final withdrawValue = double.tryParse(value) ?? 0;
 
-    await withdraw(
-      account: userStore.value!.accountNumber,
-      value: withdrawValue,
-    );
-
     userStore.removeBalance(withdrawValue);
+    await withdraw(
+      id: userStore.value?.id ?? '',
+      value: userStore.value?.balance ?? 0,
+    );
   }
 
   _onDeposit(String value) async {
     final depositValue = double.tryParse(value) ?? 0;
-    await deposit(
-      account: userStore.value!.accountNumber,
-      value: depositValue,
-    );
     userStore.addBalance(depositValue);
+    await deposit(
+      id: userStore.value?.id ?? '',
+      value: userStore.value?.balance ?? 0,
+    );
   }
 
   openWithdraw() {

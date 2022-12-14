@@ -39,6 +39,7 @@ Link do protótipo final(figma): https://www.figma.com/file/vpaNT5w2hjCGWsfvLLnC
 7. Desenvolvimento das funcionalidades;
 8. Organização do fluxo do aplicativo;
 9. Reestruturação nas pages;
+10. Refactory do Mock da API;
 
 
 ## 🎨Demonstração
@@ -51,8 +52,16 @@ Seguem telas:
 
 ## 🏁Como utilizar
 
-Baixe o apk(pacote de instalação do Android) no link abaixo e instale.
-Em breve...
+1. Instale o NodeJs(https://nodejs.org/en/), caso já tenha instalado, siga até o passo 2;
+2. Primeiro instale o Json Server com o comando:
+   ```npm install -g json-server```
+3. Inicialize o Json Server no terminal de sua IDE(Vscode, Android Studio...) com o comando:
+  ```json-server --watch db.json --routes routes.json --port 8080``` 
+4. Execute em um emulador Android; 
+5. Crie uma conta no aplicativo e faça login;
+6. Para testar a operação de transferência, insira o valor que quer transferir e informe o número da conta de destino presente no arquivo db.json, como na imagem abaixo: 
+<img src="https://github.com/ambitencourt/desafio_banco_amigo/blob/master/assets/images/Presentation/login.jpg" height="300em"/>
+
 
 ## 🛠Tecnologias
 
@@ -67,8 +76,7 @@ Os seguintes packages foram utilizados no projeto:
 
 - [Flutter Modular](https://pub.dev/packages?q=flutter_modular)
 - [Firebase Auth](https://pub.dev/packages/firebase_auth)
-- [Google Fonts](https://pub.dev/packages/google_fonts)
-- [Shared Preferences](https://pub.dev/packages/shared_preferences)  
+- [Google Fonts](https://pub.dev/packages/google_fonts) 
 - [IconSax](https://pub.dev/packages/iconsax)
 - [Firebase Core](https://pub.dev/packages/firebase_core)
 - [Cloud Firestore](https://pub.dev/packages/cloud_firestore)

@@ -6,11 +6,11 @@ class DepositUsecase {
   DepositUsecase({required this.bankrepository});
 
   Future call({
-    required String account,
+    required String id,
     required double value,
   }) {
     return bankrepository.deposit(
-      account: account,
+      id: id,
       value: value,
     );
   }

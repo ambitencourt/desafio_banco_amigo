@@ -1,10 +1,9 @@
-import 'dart:math';
-
 import 'package:asuka/asuka.dart';
 import 'package:banco_amigo/app/common/app_images.dart';
 import 'package:banco_amigo/app/common/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import '../../../../../../common/app_colors.dart';
 import '../../../../domain/entities/user_entity.dart';
 import '../../../widgets/chat_widget.dart';
@@ -38,7 +37,6 @@ class _RegisterPageState extends State<RegisterPage> {
   String password = '';
   String document = '';
   String birthday = '';
-  String accountNumber = Random().nextInt(100110010).toString();
   String passwordConfirm = '';
 
   StepsEnum step = StepsEnum.initial;
@@ -388,24 +386,22 @@ class _RegisterPageState extends State<RegisterPage> {
         });
         break;
       case StepsEnum.finish:
-        setState(() {
+        setState(() async {
           Asuka.showSnackBar(
             const SnackBar(
               content: Text("Cadastro realizado com sucesso"),
             ),
           );
 
-          widget.controller.signUp(
+          await widget.controller.register(
             UserEntity(
               document: document,
               email: email,
               name: name,
               password: password,
               birthday: birthday,
-              accountNumber: accountNumber,
             ),
           );
-          Modular.to.pushReplacementNamed('/login/loginpage');
           step = StepsEnum.done;
         });
         break;

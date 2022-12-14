@@ -9,8 +9,8 @@ class BankRepository implements IBankRepository {
   });
 
   @override
-  Future deposit({required double value, required String account}) async {
-    await bankDatasource.deposit(value: value, account: account);
+  Future deposit({required double value, required String id}) async {
+    await bankDatasource.deposit(value: value, id: id);
   }
 
   @override
@@ -18,13 +18,16 @@ class BankRepository implements IBankRepository {
       {required double value,
       required String account,
       required String accountDestiny}) async {
-    // TODO: implement transfer
-    await bankDatasource.transfer(
-        value: value, account: account, accountDestiny: accountDestiny);
+    var origin = await bankDatasource.getAccount(account);
+    await bankDatasource.withdraw(
+        value: origin['balance'] - value, id: origin['id']);
+    var destiny = await bankDatasource.getAccount(accountDestiny);
+    await bankDatasource.deposit(
+        value: destiny['balance'] + value, id: destiny['id']);
   }
 
   @override
-  Future withdraw({required double value, required String account}) async {
-    await bankDatasource.withdraw(value: value, account: account);
+  Future withdraw({required double value, required String id}) async {
+    await bankDatasource.withdraw(value: value, id: id);
   }
 }

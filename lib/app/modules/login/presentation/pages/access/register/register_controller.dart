@@ -14,15 +14,18 @@ class RegisterController {
   RegisterController({required this.userStore, required this.signUp});
 
   Future<void> register(UserEntity user) async {
-    final userRegistered = await signUp(user);
+    final userRegistered = await signUp(user.copyWith(
+      accountNumber: Random().nextInt(100110010).toString(),
+    ));
     userStore.setUser(LoginEntity(
       id: userRegistered.id,
       name: userRegistered.name ?? '',
       email: userRegistered.email,
       password: userRegistered.password,
       document: userRegistered.document ?? '',
-      accountNumber: Random().nextInt(100110010).toString(),
+      accountNumber: userRegistered.accountNumber ?? '',
       balance: userRegistered.balance,
     ));
+    Modular.to.pushReplacementNamed('/bank/home');
   }
 }

@@ -7,30 +7,30 @@ class BankDatasource implements IBankDatasource {
       : _httpClient = httpClient;
 
   @override
-  Future deposit({required double value, required String account}) async {
-    await _httpClient.put('/bank/deposit', data: {
-      'value': value,
-      'account': account,
+  Future deposit({required double value, required String id}) async {
+    await _httpClient.patch('/bank/deposit/$id', data: {
+      'balance': value,
     });
   }
 
-  @override
-  Future transfer(
-      {required double value,
-      required String account,
-      required String accountDestiny}) async {
-    await _httpClient.put('/bank/transfer', data: {
-      'value': value,
-      'account': account,
-      'accountDestiny': accountDestiny,
-    });
+
+  Future<Map<String, dynamic>> getAccount(String accountDestiny) async {
+    final result = await _httpClient.get('/user?accountNumber=$accountDestiny');
+    var account = (result.data as List).first;
+
+    return {
+      'id': account['id'],
+      'balance': account['balance'],
+    };
   }
 
   @override
-  Future withdraw({required double value, required String account}) async {
-    await _httpClient.put('/bank/withdraw', data: {
-      'value': value,
-      'account': account,
+  Future withdraw({
+    required double value,
+    required String id,
+  }) async {
+    await _httpClient.patch('/bank/withdraw/$id', data: {
+      'balance': value,
     });
   }
 }

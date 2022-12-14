@@ -20,6 +20,12 @@ abstract class IHttpClientAdapter {
     Map<String, String> queryParameters,
     Map<String, String> headers,
   });
+  Future<HttpResponse> patch(
+    String path, {
+    data,
+    Map<String, String> queryParameters,
+    Map<String, String> headers,
+  });
 
   Future<HttpResponse> delete(
     String path, {

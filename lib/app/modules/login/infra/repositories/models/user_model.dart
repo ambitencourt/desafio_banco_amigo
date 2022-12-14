@@ -46,6 +46,7 @@ class UserModel extends UserEntity {
       'document': document ?? '',
       'birthday': birthday ?? '',
       'accountNumber': accountNumber ?? '',
+      'balance': balance,
     };
   }
 

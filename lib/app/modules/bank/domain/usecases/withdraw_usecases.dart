@@ -6,11 +6,11 @@ class WithdrawUsecase {
   WithdrawUsecase({required this.bankrepository});
 
   Future call({
-    required String account,
+    required String id,
     required double value,
   }) {
     return bankrepository.withdraw(
-      account: account,
+      id: id,
       value: value,
     );
   }

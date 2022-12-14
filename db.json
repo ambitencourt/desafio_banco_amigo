@@ -1,45 +1,34 @@
 {
   "user": [
     {
-      "id": "egQb5JquGaXcVrICE533XR7sL1M2",
+      "id": "mDLwYXnEyxczd34wLzd5nY23Fen1",
+      "name": "Pedro Almeia Silva",
+      "email": "pedro@gmail.com",
+      "password": "123456",
+      "document": "1234567811",
+      "birthday": "10102010",
+      "accountNumber": "36524334",
+      "balance": 320
+    },
+    {
+      "id": "VGjuGT3zaobq1YP6OfrRcpoFqYE2",
+      "name": "Ana Maria Souza",
+      "email": "anamaria@gmail.com",
+      "password": "123456",
+      "document": "1234567899",
+      "birthday": "21081996",
+      "accountNumber": "76601819",
+      "balance": 140
+    },
+    {
+      "id": "odldHzIOKRTXJYUnhmrUX8E4FBx2",
       "name": "Bryan Vitor Santana Bitencourt",
       "email": "bryanvitor@gmail.com",
       "password": "123456",
-      "document": "1234567800",
+      "document": "12345678900",
       "birthday": "19012010",
-      "accountNumber": "1234"
-    },
-    {
-      "id": "cS4xF4WyzjYlKcQAD3U4pA5ajQ92",
-      "name": "Ana Maria Silva",
-      "email": "anamaria@gmail.com",
-      "password": "123456",
-      "document": "0123456788",
-      "birthday": "",
-      "accountNumber": ""
-    },
-    {
-      "id": "MwotTRaJyRfwwTWlEMjUCuxgdDA2",
-      "name": "Adriano Miranda Bitecourt",
-      "email": "adriano.mirandabitencourt@gmail.com",
-      "password": "123456",
-      "document": "1234567800",
-      "birthday": "27061983",
-      "accountNumber": "75334331"
-    },
-    {
-      "id": "BC5zIB450WVlj0i1vp2TrDYUNP73",
-      "name": "Pedro Henrique",
-      "email": "pedro@gmail.com",
-      "password": "123456",
-      "document": "1234567800",
-      "birthday": "01012001",
-      "accountNumber": "35380449"
+      "accountNumber": "39025238",
+      "balance": 0
     }
-  ],
-  "bank": {
-    "value": 30,
-    "account": "35380449",
-    "accountDestiny": "75334331"
-  }
+  ]
 }
